@@ -1,18 +1,18 @@
+import { OtherDataPage } from './../other/other';
 import { Component } from '@angular/core';
-
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
-import { HomePage } from '../home/home';
+import { WastePage } from '../waste/waste';
+import { MaintenancePage } from '../maintenance/maintenance';
+import { FIPage } from '../fi/fi';
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
-
+  tab1Root = FIPage;
+  tab2Root = WastePage;
+  tab3Root = MaintenancePage;
+  tab4Root = OtherDataPage;
   constructor() {
 
   }

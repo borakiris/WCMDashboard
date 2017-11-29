@@ -1,0 +1,11 @@
+<div style="display: block">
+    <canvas  #mycanvas baseChart
+            [data]="pieChartObj.pieChartData"
+            [labels] ="pieChartObj.pieChartLabels"
+            [options]="options"
+            [colors]="pieChartObj.pieChartColor"
+            [chartType]="pieChartObj.pieChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+

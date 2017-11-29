@@ -1,0 +1,32 @@
+<!-- <ion-header>
+  <ion-navbar color="primary">
+    <ion-title>FI</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content padding>
+    <span *ngIf="dashboardLoaderStatus==true">
+      <ion-spinner item-start name="bubbles" size="large" type="brand" container="true"></ion-spinner>
+    </span>
+    <ion-slides centeredSlides="true" pager="true" autoHeight="false" *ngIf="dashboardLoaderStatus == false">
+      <ion-slide>
+          <ion-header>
+              <ion-navbar color="primary">
+                <ion-title color="primary">Meter Waste %</ion-title>
+              </ion-navbar>
+            </ion-header>
+        <bar-chart [barChartObj]="meterWasteDaily"></bar-chart>
+        <bar-chart [barChartObj]="meterWasteMTD"></bar-chart>
+      </ion-slide>
+      <ion-slide>
+          <ion-header>
+              <ion-navbar color="primary">
+                <ion-title color="primary">KG Waste %</ion-title>
+              </ion-navbar>
+            </ion-header>
+        <bar-chart [barChartObj]="kgWasteDaily"></bar-chart>
+        <bar-chart [barChartObj]="kgWasteMTD"></bar-chart>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
+  
