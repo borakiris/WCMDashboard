@@ -1,0 +1,25 @@
+page-login {
+    .login-background {
+        background: url('../assets/imgs/background.jpg') no-repeat center fixed;
+        background-size: 100%;
+        background-position: bottom; 
+        background-color: white;
+        background-origin:padding-box;
+        margin: auto; 
+      }
+      .center{
+        text-align: center;
+    }
+    .loading {    
+        background-color: #ffffff;
+        background-image: url("http://loadinggif.com/images/image-selection/28.gif");
+        background-size: 25px 25px;
+        background-position:center center;
+        background-repeat: no-repeat;
+    }
+    .myCustomSelect{
+        max-width: 100% !important;
+       
+      }
+      
+}

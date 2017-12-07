@@ -137,3 +137,18 @@
       }
   }
 }
+.tabs-ios[tabsLayout=icon-hide] .tab-button,
+.tabs-ios[tabsLayout=title-hide] .tab-button,
+.tabs-ios .tab-button.icon-only,
+.tabs-ios .tab-button.has-title-only {
+    font-weight: 100 !important; 
+}
+.tabs-ios .tab-button[aria-selected=true] .tab-button-text {
+    -webkit-transform: none !important;
+    font-size:12px;
+    font-style: "bold";
+  }
+  .tabs-ios .tab-button[aria-selected=false] .tab-button-text {
+    -webkit-transform: none !important;
+    font-size:11px;
+  }

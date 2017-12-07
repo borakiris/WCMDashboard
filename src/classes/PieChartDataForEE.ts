@@ -26,7 +26,7 @@ export class PieChartDataForEE {
         if (targetDiff<0){
           targetDiff=0;
         }
-        this.pieChartData = [this.eeVal,targetDiff, stopVal];
+        this.pieChartData = [this.eeVal,targetDiff.toFixed(2), stopVal.toFixed(2)];
     
         if (this.targetVal > this.eeVal) {
           currColor = "#c62828";

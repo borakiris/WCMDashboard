@@ -24,9 +24,9 @@ export class FIPage implements OnInit {
   sliMTDEE: PieChartDataForEE;
   constructor(public navCtrl: NavController, private dBoardProvider: DashboardDataProvider) { }
   ngOnInit() {
-    this.dashboardLoaderStatus = true;
-    this.dBoardProvider.dashboardDataBS.subscribe((retData: boolean) => {
-      this.dashboardLoaderStatus = retData;
+    // this.dashboardLoaderStatus = true;
+    // this.dBoardProvider.dashboardDataBS.subscribe((retData: boolean) => {
+    //   this.dashboardLoaderStatus = retData;
       this.dashboard = this.dBoardProvider.dashboard;
       this.priYesterdayEE = new PieChartDataForEE(this.dBoardProvider,'doughnut','Printer(Yesterday\'s EE)','Printer(Target EE)','Yesterday\'s EE');
       this.priMTDEE = new PieChartDataForEE(this.dBoardProvider,'doughnut','Printer(MTD EE)','Printer(Target EE)','MTD EE');
@@ -35,7 +35,7 @@ export class FIPage implements OnInit {
       this.sliYesterdayEE = new PieChartDataForEE(this.dBoardProvider,'doughnut','Slitter(Yesterday\'s EE)','Slitter(Target EE)','Yesterday\'s EE');
       this.sliMTDEE = new PieChartDataForEE(this.dBoardProvider,'doughnut','Slitter(MTD EE)','Slitter(Target EE)','MTD EE');
 
-    });
+    // });
   }
   getTextAndValue(keyVal:string):string{
     return keyVal + ": " + this.dBoardProvider.dataMapObj.get(keyVal);

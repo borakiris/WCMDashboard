@@ -41,12 +41,15 @@ export class PieChartComponent implements OnInit {
       },
       tooltips: {
         display: true,
-      },
+       },
       animation: {
         onComplete: function () {
           me.doit(ctx);
         }
-      }
+      },
+      axisY:{
+        valueFormatString: "$#,###,#0", //try properties here
+      },
     }
 
   }
