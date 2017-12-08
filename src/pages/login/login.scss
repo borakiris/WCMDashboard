@@ -1,25 +1,42 @@
 page-login {
-    .login-background {
-        background: url('../assets/imgs/background.jpg') no-repeat center fixed;
-        background-size: 100%;
-        background-position: bottom; 
-        background-color: white;
-        background-origin:padding-box;
-        margin: auto; 
-      }
-      .center{
-        text-align: center;
-    }
-    .loading {    
-        background-color: #ffffff;
-        background-image: url("http://loadinggif.com/images/image-selection/28.gif");
-        background-size: 25px 25px;
-        background-position:center center;
-        background-repeat: no-repeat;
-    }
-    .myCustomSelect{
-        max-width: 100% !important;
-       
-      }
-      
+  .login-background {
+    background: url('../assets/imgs/background.jpg') no-repeat center fixed;
+    background-size: 100%;
+    background-position: bottom;
+    background-color: white;
+    background-origin: padding-box;
+    margin: auto;
+  }
+  .center {
+    text-align: center;
+  }
+  .loading {
+    background-color: #ffffff;
+    background-image: url("http://loadinggif.com/images/image-selection/28.gif");
+    background-size: 25px 25px;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  .myCustomSelect {
+    width: 100%;
+    max-width: 100% !important;
+  }
+  .alertPassword {
+    font-size: 20px;
+    text-align: center;
+    font-style: bold;
+    color: red;
+  }
+  #rounded {
+    width: 100%;
+    height: 20%;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 10px;
+    margin-bottom: 10px;  
+}
+.wcm-ion-select .item-inner{
+    margin-left: -8px;
+}
+
 }

@@ -34,6 +34,7 @@ export class LoginPage {
 
   ngOnInit() {
     let storedFactory;
+    this.isLoading = false;
      this.platform.ready().then(
       ()=> this.nativeStorage.getItem("factory").then(
       data => {storedFactory = data;
@@ -42,12 +43,17 @@ export class LoginPage {
     ).then(
      ()=> {console.log(storedFactory);
       if (storedFactory == null) {
+        this.isLoading = true;
         this.factoryProvider.factoriesObsv.subscribe(() => {
           this.factories = this.factoryProvider.factories;
           console.log(this.factories);
-          () => this.isLoading = false;
+          () => this.isLoading = true;
         });
       } else {
+        this.nativeStorage.setItem("factory", null).then(
+          ()=> console.log('Stored item!'),
+        error => console.log(error));
+
         this.dBoardProvider.getDashboardDataForFactory(storedFactory);
         this.dBoardProvider.dashboardDataBS.subscribe(dData =>  {
           this.nav.push(TabsPage)});

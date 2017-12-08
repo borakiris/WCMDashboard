@@ -13,6 +13,9 @@
         <ion-header>
             <ion-navbar color="primary">
               <ion-title color="primary">MTBF-21</ion-title>
+              <ion-label class="alignRight">
+                  {{dBoardProvider.tarihStr}}
+                </ion-label>
             </ion-navbar>
           </ion-header>
       <bar-chart [barChartObj]="mtbf21Daily"></bar-chart>
@@ -22,6 +25,9 @@
         <ion-header>
             <ion-navbar color="primary">
               <ion-title color="primary">MTBF- 21&26</ion-title>
+              <ion-label class="alignRight">
+                  {{dBoardProvider.tarihStr}}
+                </ion-label>
             </ion-navbar>
           </ion-header>
       <bar-chart [barChartObj]="mtbf2126Daily"></bar-chart>

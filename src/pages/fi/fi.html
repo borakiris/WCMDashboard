@@ -11,27 +11,35 @@
 
   <ion-slides centeredSlides="true" pager="true" autoHeight="false" *ngIf="dashboardLoaderStatus == false">
     <ion-slide>
-        <ion-header>
-            <ion-navbar color="primary">
-              <ion-title color="primary">Printing</ion-title>
-            </ion-navbar>
-          </ion-header>
+      <ion-header>
+        <ion-navbar color="primary">
+
+          <ion-title color="primary">Printing</ion-title>
+          <ion-label class="alignRight">
+            {{dBoardProvider.tarihStr}}
+          </ion-label>
+        </ion-navbar>
+      </ion-header>
+
       <pie-chart [pieChartObj]="priYesterdayEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
         Produced Meters: {{getValue("Printing (Yesterday's Produced Meters)")| number:'.0'}}
       </ion-item>
-      <pie-chart [pieChartObj]="priMTDEE"></pie-chart> 
+      <pie-chart [pieChartObj]="priMTDEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
         Produced Meters: {{getValue("Printing (MTD Produced Meters)")| number:'.0'}}
       </ion-item>
       <sub ion-text color="target">Target : %{{getValue("Printer(Target EE)")}}</sub>
     </ion-slide>
     <ion-slide>
-        <ion-header>
-            <ion-navbar color="primary">
-              <ion-title color="primary">Laminating</ion-title>
-            </ion-navbar>
-          </ion-header>
+      <ion-header>
+        <ion-navbar color="primary">
+          <ion-title color="primary">Laminating</ion-title>
+          <ion-label class="alignRight">
+            {{dBoardProvider.tarihStr}}
+          </ion-label>
+        </ion-navbar>
+      </ion-header>
       <pie-chart [pieChartObj]="lamYesterdayEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
         Produced Meters: {{getValue("Coating (Yesterday's Produced Meters)")| number:'.0'}}
@@ -43,11 +51,14 @@
       <sub ion-text color="target">Target : %{{getValue("Laminator(Target EE)")}}</sub>
     </ion-slide>
     <ion-slide>
-        <ion-header>
-            <ion-navbar color="primary">
-              <ion-title color="primary">Slitting</ion-title>
-            </ion-navbar>
-          </ion-header>
+      <ion-header>
+        <ion-navbar color="primary">
+          <ion-title color="primary">Slitting</ion-title>
+          <ion-label class="alignRight">
+            {{dBoardProvider.tarihStr}}
+          </ion-label>
+        </ion-navbar>
+      </ion-header>
       <pie-chart [pieChartObj]="sliYesterdayEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
         Produced Meters: {{getValue("Slitting (Yesterday's Produced Meters)")| number:'.0'}}
@@ -59,4 +70,5 @@
       <sub ion-text color="target">Target : %{{getValue("Slitter(Target EE)")}}</sub>
     </ion-slide>
   </ion-slides>
+
 </ion-content>

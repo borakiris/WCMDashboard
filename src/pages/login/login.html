@@ -1,26 +1,27 @@
-<ion-content class="login-background" padding>
-  <button ion-button icon-only item-end clear *ngIf="factorySelected" color="alert" (click)="backClicked()">
+<ion-content class="login-background" padding *ngIf="isLoading==true">
+  <button ion-button icon-only item-end clear *ngIf="factorySelected" color="danger" (click)="backClicked()">
     <ion-icon name="arrow-round-back"></ion-icon>
   </button>
   <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" style="margin-top: calc(100vh - 70vh);">
-    <ion-list inset>
-      <ion-item *ngIf="!factorySelected" [class.loading]="factoryProvider.isFactoryLoading">
+    <ion-list inset item-content>
+      <ion-item *ngIf="!factorySelected" id="rounded" [class.loading]="factoryProvider.isFactoryLoading">
         <ion-label>Factory</ion-label>
-        <ion-select  [(ngModel)]="selectedFactory" [ngModelOptions]="{standalone:true}" interface="popover" (ionChange)="onFactoryChange($event)">
-          <ion-option value={{fact.Value}} *ngFor="let fact of factories" >{{fact.Value}}</ion-option>          
+        <ion-select [(ngModel)]="selectedFactory" [ngModelOptions]="{standalone:true}" interface="popover" (ionChange)="onFactoryChange($event)">
+          <ion-option value={{fact.Value}} *ngFor="let fact of factories">{{fact.Value}}</ion-option>
         </ion-select>
       </ion-item>
-      <ion-item *ngIf="factorySelected">
-        <ion-select [class]="myCustomSelect" placeholder="Username" [(ngModel)]="userPassword" [ngModelOptions]="{standalone:true}" interface="popover">
-          <ion-option value={{per.Value}} *ngFor="let per of dBoardProvider.personnel" >{{per.Kod}}</ion-option>          
+      <ion-item *ngIf="factorySelected" id="rounded" class="wcm-ion-select" item-content >
+        <ion-select [(ngModel)]="userPassword" style = "margin-left:-16px;" placeholder="Username" [ngModelOptions]="{standalone:true}" class="myCustomSelect" >
+          <ion-option value={{per.Value}} *ngFor="let per of dBoardProvider.personnel">{{per.Kod}}</ion-option>
         </ion-select>
       </ion-item>
-      <ion-item *ngIf="factorySelected">
-        <ion-input [(ngModel)]="password" placeholder="Password" name="password" id="passwordField" type="password" required (click)="passwordClick()"></ion-input>
+      <ion-item *ngIf="factorySelected" id="rounded"  item-content>
+        <ion-input  [(ngModel)]="password"  placeholder="Password" name="password" type="password" required (click)="passwordClick()" ></ion-input>
       </ion-item>
     </ion-list>
-    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
-    <button *ngIf="factorySelected" ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid" color="danger">Login
+    <div *ngIf="error" class="alertPassword">{{error}}</div>
+    <button ion-button round *ngIf="factorySelected" ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid"
+      color="danger">Login
     </button>
   </form>
 </ion-content>
