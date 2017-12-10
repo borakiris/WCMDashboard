@@ -13,6 +13,9 @@
           <ion-header>
               <ion-navbar color="primary">
                 <ion-title color="primary">Meter Waste %</ion-title>
+                <ion-label class="alignRight">
+                    {{dBoardProvider.tarihStr}}
+                  </ion-label>
               </ion-navbar>
             </ion-header>
         <bar-chart [barChartObj]="meterWasteDaily"></bar-chart>
@@ -22,6 +25,9 @@
           <ion-header>
               <ion-navbar color="primary">
                 <ion-title color="primary">KG Waste %</ion-title>
+                <ion-label class="alignRight">
+                    {{dBoardProvider.tarihStr}}
+                  </ion-label>
               </ion-navbar>
             </ion-header>
         <bar-chart [barChartObj]="kgWasteDaily"></bar-chart>

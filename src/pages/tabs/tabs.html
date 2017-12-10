@@ -1,8 +1,10 @@
-
+<span *ngIf="dBoardProvider.isDashboardLoading">
+  <ion-spinner item-start name="bubbles" size="large" type="brand" container="true"></ion-spinner>
+</span>
 <ion-tabs tabsLayout="icon-start" tabsPlacement="bottom">
-  <ion-tab [root]="tab1Root" tabTitle="FI" tabIcon="fi" tabsHighlight="true"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Waste" tabIcon="waste"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Maintenance" tabIcon="maintenance"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="Others" tabIcon="other"></ion-tab>
+  <ion-tab   [root]="tab1Root" tabTitle="FI" tabIcon="fi" ></ion-tab>
+  <ion-tab  [root]="tab2Root" tabTitle="Waste" tabIcon="waste"></ion-tab>
+  <ion-tab  [root]="tab3Root" tabTitle="Maintenance" tabIcon="maintenance"></ion-tab>
+  <ion-tab  [root]="tab4Root" tabTitle="Others" tabIcon="other"></ion-tab>
 </ion-tabs>
 

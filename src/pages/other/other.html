@@ -8,12 +8,14 @@
   <ion-slides centeredSlides="true" pager="false" autoHeight="false">
     <ion-slide>
 
-      <ion-list-header color="primary">
-          DOCTOR
-          <button ion-button icon-only item-end clear>
-            <ion-icon name="pulse"></ion-icon>
-          </button>
-        </ion-list-header>
+     
+        <ion-navbar color="primary">
+          <ion-title color="primary">Doctor</ion-title>
+          <ion-label class="alignRight">
+              {{dBoardProvider.tarihStr}}
+            </ion-label>
+        </ion-navbar>
+   
       <ion-list>
         <ion-item >
           <ion-label col-4 class="app-font-13"></ion-label>
@@ -40,12 +42,12 @@
           </ion-item>
         </ion-item-group>
       </ion-list>
-      <ion-list-header color="primary">
-          WIP
-          <button ion-button icon-only item-end clear>
-            <ion-icon name="pulse"></ion-icon>
-          </button>
-        </ion-list-header>
+      <ion-navbar color="primary">
+        <ion-title color="primary">WIP</ion-title>
+        <ion-label class="alignRight">
+            {{dBoardProvider.tarihStr}}
+          </ion-label>
+      </ion-navbar>
         <ion-list>
           <ion-item >
             <ion-label col-4 class="app-font-13"></ion-label>
