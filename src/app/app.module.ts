@@ -1,3 +1,4 @@
+import { UserInfoPage } from './../pages/user-info/user-info';
 import { FactoriesDataProvider } from './../providers/factories-data/factories-data';
 import { MaintenancePage } from './../pages/maintenance/maintenance';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -33,7 +34,8 @@ const firebaseConfig = {
     FIPage,
     OtherDataPage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    UserInfoPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ const firebaseConfig = {
     FIPage,
     OtherDataPage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    UserInfoPage
   ],
   providers: [
     StatusBar,NativeStorage,

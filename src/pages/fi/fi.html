@@ -9,7 +9,7 @@
     <ion-spinner item-start name="bubbles" size="large" type="brand" container="true"></ion-spinner>
   </span>
 
-  <ion-slides centeredSlides="true" pager="true" autoHeight="false" *ngIf="dashboardLoaderStatus == false">
+  <ion-slides centeredSlides="false" pager="true" autoHeight="false" zoom=true *ngIf="dashboardLoaderStatus == false">
     <ion-slide>
       <ion-header>
         <ion-navbar color="primary">
@@ -35,7 +35,7 @@
       <ion-header>
         <ion-navbar color="primary">
           <ion-title color="primary">Laminating</ion-title>
-          <ion-label class="alignRight">
+          <ion-label class="alignRight label">
             {{dBoardProvider.tarihStr}}
           </ion-label>
         </ion-navbar>

@@ -11,15 +11,15 @@
         </ion-select>
       </ion-item>
       <ion-item *ngIf="factorySelected" id="rounded" class="wcm-ion-select" item-content >
-        <ion-select [(ngModel)]="userPassword" style = "margin-left:-16px;" placeholder="Username" [ngModelOptions]="{standalone:true}" class="myCustomSelect" >
-          <ion-option value={{per.Value}} *ngFor="let per of dBoardProvider.personnel">{{per.Kod}}</ion-option>
+        <ion-select [(ngModel)]="selectedUser" style = "margin-left:-16px;" placeholder="Username" [ngModelOptions]="{standalone:true}" class="myCustomSelect" >
+          <ion-option [value]="per"  *ngFor="let per of dBoardProvider.personnel" >{{per.Kod}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item *ngIf="factorySelected" id="rounded"  item-content>
         <ion-input  [(ngModel)]="password"  placeholder="Password" name="password" type="password" required (click)="passwordClick()" ></ion-input>
       </ion-item>
     </ion-list>
-    <div *ngIf="error" class="alertPassword">{{error}}</div>
+    <div *ngIf="error!=''" class="alertPassword">{{error}}</div>
     <button ion-button round *ngIf="factorySelected" ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid"
       color="danger">Login
     </button>

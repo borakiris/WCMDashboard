@@ -1,0 +1,26 @@
+page-user-info {
+    .user-background {
+        background: url('../assets/imgs/background_user.jpg') no-repeat center fixed;
+        background-size: 100%;
+        background-position: bottom;
+        background-color: white;
+        background-origin: padding-box;
+        margin: auto;
+      }
+      #rounded {
+        width: 100%;
+        height: 20%;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 10px;
+        margin-bottom: 10px;  
+    }
+    #rounded-button {
+        width: 100%;
+
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 10px;
+        margin-bottom: 10px;  
+    }
+}

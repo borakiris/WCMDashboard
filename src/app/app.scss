@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,141 +12,203 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-.tabbar, .tabs-ios, .tabs-md , .tabs-wp{
-    .tab-button-icon {
-        background-repeat:no-repeat;
-        background-position:center;
-        height:24px;
-        width:24px;
-        background-size:contain;
-        -webkit-background-size: contain;
-        -moz-background-size: contain;
-        -o-background-size: contain;
-        &:before {
-            display:none;
-        }
+.tabbar,
+.tabs-ios,
+.tabs-md,
+.tabs-wp {
+  .tab-button-icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 24px;
+    width: 24px;
+    background-size: contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    &:before {
+      display: none;
     }
+  }
 }
 
 .tabs-ios {
-    text-align: left;
-  a[aria-selected=false]{
-     .tab-button-icon[ng-reflect-name=fi], .tab-button-icon[aria-label="fi"] {
+  text-align: left;
+  a[aria-selected=false] {
+    .tab-button-icon[ng-reflect-name=fi],
+    .tab-button-icon[aria-label="fi"] {
       background-image: url(../assets/imgs/fi_passive.png);
     }
-    .tab-button-icon[ng-reflect-name=waste], .tab-button-icon[aria-label="waste"] {
-        background-image: url(../assets/imgs/waste_passive.png);
-      }
-      .tab-button-icon[ng-reflect-name=maintenance], .tab-button-icon[aria-label="maintenance"] {
-        background-image: url(../assets/imgs/maintenance_passive.png);
-      }
-      .tab-button-icon[ng-reflect-name=other], .tab-button-icon[aria-label="other"] {
-        background-image: url(../assets/imgs/other_passive.png);
-      }
+    .tab-button-icon[ng-reflect-name=waste],
+    .tab-button-icon[aria-label="waste"] {
+      background-image: url(../assets/imgs/waste_passive.png);
+    }
+    .tab-button-icon[ng-reflect-name=maintenance],
+    .tab-button-icon[aria-label="maintenance"] {
+      background-image: url(../assets/imgs/maintenance_passive.png);
+    }
+    .tab-button-icon[ng-reflect-name=other],
+    .tab-button-icon[aria-label="other"] {
+      background-image: url(../assets/imgs/other_passive.png);
+    }
+    .tab-button-icon[ng-reflect-name=user],
+    .tab-button-icon[aria-label="user"] {
+      background-image: url(../assets/imgs/user_passive.png);
+    }
   }
- a[aria-selected=true] {
-   //führ eventuellen text
-   //span {
-      //color: #f00; //whatever colour you want to use for the text
+  a[aria-selected=true] {
+    //führ eventuellen text
+    //span {
+    //color: #f00; //whatever colour you want to use for the text
     //}
-    .tab-button-icon[ng-reflect-name=fi], .tab-button-icon[aria-label=fi] {
+    .tab-button-icon[ng-reflect-name=fi],
+    .tab-button-icon[aria-label=fi] {
       background-image: url(../assets/imgs/fi_active.png);
     }
-    .tab-button-icon[ng-reflect-name=waste], .tab-button-icon[aria-label=waste] {
+    .tab-button-icon[ng-reflect-name=waste],
+    .tab-button-icon[aria-label=waste] {
       background-image: url(../assets/imgs/waste_active.png);
     }
-    .tab-button-icon[ng-reflect-name=maintenance], .tab-button-icon[aria-label=maintenance] {
+    .tab-button-icon[ng-reflect-name=maintenance],
+    .tab-button-icon[aria-label=maintenance] {
       background-image: url(../assets/imgs/maintenance_active.png);
     }
-    .tab-button-icon[ng-reflect-name=other], .tab-button-icon[aria-label=other] {
+    .tab-button-icon[ng-reflect-name=other],
+    .tab-button-icon[aria-label=other] {
       background-image: url(../assets/imgs/other_active.png);
+    }
+    .tab-button-icon[ng-reflect-name=user],
+    .tab-button-icon[aria-label=user] {
+      background-image: url(../assets/imgs/user_active.png);
     }
   }
 }
 
 .tabs-md {
-  a[aria-selected=false]{
-     .tab-button-icon[ng-reflect-name=fi], .tab-button-icon[aria-label="fi"] {
+  a[aria-selected=false] {
+    .tab-button-icon[ng-reflect-name=fi],
+    .tab-button-icon[aria-label="fi"] {
       background-image: url(../assets/imgs/fi_passive.png);
     }
-    .tab-button-icon[ng-reflect-name=waste], .tab-button-icon[aria-label="waste"] {
-        background-image: url(../assets/imgs/waste_passive.png);
-      }
-      .tab-button-icon[ng-reflect-name=maintenance], .tab-button-icon[aria-label="maintenance"] {
-        background-image: url(../assets/imgs/maintenance_passive.png);
-      }
-      .tab-button-icon[ng-reflect-name=other], .tab-button-icon[aria-label="other"] {
-        background-image: url(../assets/imgs/other_passive.png);
-      }
+    .tab-button-icon[ng-reflect-name=waste],
+    .tab-button-icon[aria-label="waste"] {
+      background-image: url(../assets/imgs/waste_passive.png);
+    }
+    .tab-button-icon[ng-reflect-name=maintenance],
+    .tab-button-icon[aria-label="maintenance"] {
+      background-image: url(../assets/imgs/maintenance_passive.png);
+    }
+    .tab-button-icon[ng-reflect-name=other],
+    .tab-button-icon[aria-label="other"] {
+      background-image: url(../assets/imgs/other_passive.png);
+    }
+    .tab-button-icon[ng-reflect-name=user],
+    .tab-button-icon[aria-label="user"] {
+      background-image: url(../assets/imgs/user_passive.png);
+    }
   }
-
- a[aria-selected=true] {
-   //führ eventuellen text
-   //span {
-      //color: #f00; //whatever colour you want to use for the text
+  a[aria-selected=true] {
+    //führ eventuellen text
+    //span {
+    //color: #f00; //whatever colour you want to use for the text
     //}
-    .tab-button-icon[ng-reflect-name=fi], .tab-button-icon[aria-label=fi] {
+    .tab-button-icon[ng-reflect-name=fi],
+    .tab-button-icon[aria-label=fi] {
       background-image: url(../assets/imgs/fi_active.png);
     }
-    .tab-button-icon[ng-reflect-name=waste], .tab-button-icon[aria-label=waste] {
-        background-image: url(../assets/imgs/waste_active.png);
-      }
-      .tab-button-icon[ng-reflect-name=maintenance], .tab-button-icon[aria-label=maintenance] {
-        background-image: url(../assets/imgs/maintenance_active.png);
-      }
-      .tab-button-icon[ng-reflect-name=other], .tab-button-icon[aria-label=other] {
-        background-image: url(../assets/imgs/other_active.png);
-      }
+    .tab-button-icon[ng-reflect-name=waste],
+    .tab-button-icon[aria-label=waste] {
+      background-image: url(../assets/imgs/waste_active.png);
+    }
+    .tab-button-icon[ng-reflect-name=maintenance],
+    .tab-button-icon[aria-label=maintenance] {
+      background-image: url(../assets/imgs/maintenance_active.png);
+    }
+    .tab-button-icon[ng-reflect-name=other],
+    .tab-button-icon[aria-label=other] {
+      background-image: url(../assets/imgs/other_active.png);
+    }
+    .tab-button-icon[ng-reflect-name=user],
+    .tab-button-icon[aria-label=user] {
+      background-image: url(../assets/imgs/user_active.png);
+    }
   }
 }
 
 .tabs-wp {
-  a[aria-selected=false]{
-     .tab-button-icon[ng-reflect-name=fi], .tab-button-icon[aria-label="fi"] {
+  a[aria-selected=false] {
+    .tab-button-icon[ng-reflect-name=fi],
+    .tab-button-icon[aria-label="fi"] {
       background-image: url(../assets/imgs/fi_passive.png);
     }
-    .tab-button-icon[ng-reflect-name=waste], .tab-button-icon[aria-label="waste"] {
-        background-image: url(../assets/imgs/waste_passive.png);
-      }
-      .tab-button-icon[ng-reflect-name=maintenance], .tab-button-icon[aria-label="maintenance"] {
-        background-image: url(../assets/imgs/maintenance_passive.png);
-      }
-      .tab-button-icon[ng-reflect-name=other], .tab-button-icon[aria-label="other"] {
-        background-image: url(../assets/imgs/other_passive.png);
-      }
+    .tab-button-icon[ng-reflect-name=waste],
+    .tab-button-icon[aria-label="waste"] {
+      background-image: url(../assets/imgs/waste_passive.png);
+    }
+    .tab-button-icon[ng-reflect-name=maintenance],
+    .tab-button-icon[aria-label="maintenance"] {
+      background-image: url(../assets/imgs/maintenance_passive.png);
+    }
+    .tab-button-icon[ng-reflect-name=other],
+    .tab-button-icon[aria-label="other"] {
+      background-image: url(../assets/imgs/other_passive.png);
+    }
+    .tab-button-icon[ng-reflect-name=user],
+    .tab-button-icon[aria-label="user"] {
+      background-image: url(../assets/imgs/user_passive.png);
+    }
   }
-
- a[aria-selected=true] {
-   //führ eventuellen text
-   //span {
-      //color: #f00; //whatever colour you want to use for the text
+  a[aria-selected=true] {
+    //führ eventuellen text
+    //span {
+    //color: #f00; //whatever colour you want to use for the text
     //}
-    .tab-button-icon[ng-reflect-name=fi], .tab-button-icon[aria-label=fi] {
+    .tab-button-icon[ng-reflect-name=fi],
+    .tab-button-icon[aria-label=fi] {
       background-image: url(../assets/imgs/fi_active.png);
     }
-    .tab-button-icon[ng-reflect-name=waste], .tab-button-icon[aria-label=waste] {
-        background-image: url(../assets/imgs/waste_active.png);
-      }
-      .tab-button-icon[ng-reflect-name=maintenance], .tab-button-icon[aria-label=maintenance] {
-        background-image: url(../assets/imgs/maintenance_active.png);
-      }
-      .tab-button-icon[ng-reflect-name=other], .tab-button-icon[aria-label=other] {
-        background-image: url(../assets/imgs/other_active.png);
-      }
+    .tab-button-icon[ng-reflect-name=waste],
+    .tab-button-icon[aria-label=waste] {
+      background-image: url(../assets/imgs/waste_active.png);
+    }
+    .tab-button-icon[ng-reflect-name=maintenance],
+    .tab-button-icon[aria-label=maintenance] {
+      background-image: url(../assets/imgs/maintenance_active.png);
+    }
+    .tab-button-icon[ng-reflect-name=other],
+    .tab-button-icon[aria-label=other] {
+      background-image: url(../assets/imgs/other_active.png);
+    }
+    .tab-button-icon[ng-reflect-name=user],
+    .tab-button-icon[aria-label=user] {
+      background-image: url(../assets/imgs/user_active.png);
+    }
   }
 }
+
 .tabs-ios[tabsLayout=icon-hide] .tab-button,
 .tabs-ios[tabsLayout=title-hide] .tab-button,
 .tabs-ios .tab-button.icon-only,
 .tabs-ios .tab-button.has-title-only {
-    font-weight: 100 !important; 
+  font-weight: 100 !important;
 }
+
 .tabs-ios .tab-button[aria-selected=true] .tab-button-text {
-    -webkit-transform: none !important;
-    font-size:12px;
-    font-style: "bold";
-  }
-  .tabs-ios .tab-button[aria-selected=false] .tab-button-text {
-    -webkit-transform: none !important;
-    font-size:11px;
-  }
+  -webkit-transform: none !important;
+  font-size: 12px;
+  font-style: "bold";
+}
+
+.tabs-ios .tab-button[aria-selected=false] .tab-button-text {
+  -webkit-transform: none !important;
+  font-size: 11px;
+}
+
+[tabsLayout=icon-left] .tab-button,
+[tabsLayout=icon-right] .tab-button,
+[tabsLayout=icon-start] .tab-button,
+[tabsLayout=icon-end] .tab-button {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row; // -ms-flex-direction: row;
+  flex-direction: column;
+}

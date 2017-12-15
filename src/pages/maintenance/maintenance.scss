@@ -1,13 +1,5 @@
 page-maintenance {
-    .alignRight {
-        // text-align: right;
-        position: absolute;
-        font-size: 15px;
-        font-style: italic;
-        color:silver;
-        bottom: -1;
-        right: 0
-      }
+
       ion-title {
         position: absolute;
         top: 0;
@@ -17,4 +9,38 @@ page-maintenance {
         height: 100%;
         text-align: center;
       }
+}
+.ios{
+	page-maintenance {
+		.alignRight {
+      // text-align: right;
+      height: 12px !important;
+      width: 120px !important;
+      padding-right: 0px !important;
+      margin-right: 0px !important;
+
+      position: absolute;
+      font-size: 12px;
+      font-style: italic;
+      color:silver;
+      bottom: -1;
+      right: 1px;
+      margin-top: 10px
+    }
+   
+	}	
+}
+.md{
+	page-maintenance {
+    .alignRight {
+      // text-align: right;
+      position: absolute;
+      font-size: 13px;
+      font-style: italic;
+      color:silver;
+      bottom: -1;
+
+      right: 0
+    }
+	}	
 }
