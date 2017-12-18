@@ -20,8 +20,9 @@
       </ion-item>
     </ion-list>
     <div *ngIf="error!=''" class="alertPassword">{{error}}</div>
-    <button ion-button round *ngIf="factorySelected" ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid"
+    <button ion-button icon-right round *ngIf="factorySelected" ion-button class="submit-btn" full type="submit" [disabled]="!loginForm.form.valid"
       color="danger">Login
+      <ion-icon name="log-in"></ion-icon>
     </button>
   </form>
 </ion-content>

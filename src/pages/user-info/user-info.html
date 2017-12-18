@@ -1,11 +1,11 @@
 <ion-content class="user-background" padding>
-  <div id="rounded"  style="margin-top: calc(100vh - 70vh);">
-      <ion-item id="rounded">
-          <ion-label>{{storedUser}}</ion-label>
+  <div id="rounded"  style="margin-top: calc(100vh - 70vh)">
+      <ion-item style="background-color: rgb(109, 105, 105);color: white" id="rounded">
+          <ion-label style="text-align: center" >{{storedUser}}</ion-label>
         </ion-item>
         
-        <ion-item id="rounded">
-            <ion-label>{{storedFactory}}</ion-label>
+        <ion-item style="background-color: rgb(109, 105, 105);color: white" id="rounded">
+            <ion-label style="text-align: center" >{{storedFactory}}</ion-label>
           </ion-item>
       <ion-buttons full  id="rounded-button" >
           <button full ion-button  id="rounded-button" icon-right color="danger" (click)="logoff()">
