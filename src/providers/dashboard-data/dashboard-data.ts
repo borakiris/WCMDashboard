@@ -13,11 +13,11 @@ import { DateTime } from 'ionic-angular/components/datetime/datetime';
 export class DashboardDataProvider {
   dashboard: IDasbhoardValues[];
   factories: string[];
-  personnel: IEmployee[] =[];
+  personnel: IEmployee[] = [];
   firebaseDBName: string;
   dashboardObsv: Observable<any[]>;
   personnelObsv: Observable<IEmployee[]>;
-  adminUser:  IEmployee ;
+  adminUser: IEmployee;
 
   public isUserLoading: boolean = true;
   public isDashboardLoading: boolean = true;
@@ -33,34 +33,36 @@ export class DashboardDataProvider {
   public getDashboardDataAndUsersForFactory(factoryName: string) {
 
     this.firebaseDBName = 'Users_' + factoryName;
-     this.personnelObsv = this.af.list(this.firebaseDBName).valueChanges();
+    this.personnel = [];
+    this.personnelObsv = this.af.list(this.firebaseDBName).valueChanges();
     this.personnelObsv.subscribe(userData => {
-      // this.personnel =Object.assign([], userData); 
-    console.log("UserData:" + userData)
+     
+      console.log("UserData:" + userData)
       this.isUserLoading = false;
       userData.forEach(element => {
         this.personnel.push(Object.assign({}, element))
       });
-      
-      this.personnel.splice(0,0,{Kod: "Admin", Value: "ltmiot2018"});
+
+      // this.personnel.splice(0,0,{Kod: "Admin", Value: "ltmiot2018"});
 
       this.firebaseDBName = 'Dashboard_' + factoryName;
       this.dashboardObsv = this.af.list(this.firebaseDBName).valueChanges();
       this.dashboardObsv
-      .subscribe(dashData => {
-        this.dashboard = dashData;
-        dashData.forEach(element => {
-          this.dataMapObj.set(element.Kod.replace('Baskı', 'Printer').replace('Kaplama', 'Laminator').replace('Kesme', 'Slitter'), element.Value);
+        .subscribe(dashData => {
+          this.dashboard = dashData;
+          dashData.forEach(element => {
+            this.dataMapObj.set(element.Kod.replace('Baskı', 'Printer').replace('Kaplama', 'Laminator').replace('Kesme', 'Slitter')
+            .replace('Stampa', 'Printer').replace('Laminatore', 'Laminator').replace('Taglio', 'Slitter'), element.Value);
+          });
+          let tarVal: number = this.dataMapObj.get("Date");
+          this.tarihStr = moment.fromOADate(tarVal).format('Do MMMM YYYY')
+          this.isDashboardLoading = false;
+          this.dashboardDataBS.next(false);
         });
-        let tarVal: number = this.dataMapObj.get("Date");
-        this.tarihStr = moment.fromOADate(tarVal).format('Do MMMM YYYY')
-        this.isDashboardLoading = false;
-        this.dashboardDataBS.next(false);
-      });
     }
-  );
-  
-    
+    );
+
+
   }
 
   public getUsersDataForFactory(factoryName: string) {
@@ -73,10 +75,10 @@ export class DashboardDataProvider {
     });
   }
 
-  private addAdminUserToPersonnel(perList:IEmployee[]){
-    let adminUser:  IEmployee;
-    adminUser.Kod="Admin";
-    adminUser.Value="P@ssw0rd"
+  private addAdminUserToPersonnel(perList: IEmployee[]) {
+    let adminUser: IEmployee;
+    adminUser.Kod = "Admin";
+    adminUser.Value = "P@ssw0rd"
     perList.push(adminUser);
   }
 

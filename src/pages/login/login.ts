@@ -29,27 +29,31 @@ export class LoginPage {
   selectedUser: IEmployee;
   password: string;
   error: string;
+  storedFactory;
+  storedUser;
   constructor(private nav: NavController, public navParams: NavParams, private factoryProvider: FactoriesDataProvider,
     private dBoardProvider: DashboardDataProvider, private nativeStorage: NativeStorage, private platform: Platform) {
   }
 
   ngOnInit() {
-    let storedFactory;
-    let storedUser;
+    console.log("Inıt:" + this.storedUser)
+this.storedUser=null;
+this.storedFactory=null;
     this.isLoading = false;
     this.platform.ready().then(
       () => Promise.all([this.nativeStorage.getItem("factory"), this.nativeStorage.getItem("user")]).then(
         values => {
           console.log("Values:" + values)
-          storedFactory = values[0];
-          storedUser = values[1];
-          console.log("Stored Factory login:" + storedFactory)
-          console.log("Stored User:" + storedUser)
+          this.storedFactory = values[0];
+          this.storedUser = values[1];
+          console.log("Stored Factory login:" + this.storedFactory)
+          console.log("Stored User:" + this.storedUser)
         },
-        error => storedFactory = null
+        error => {this.storedFactory = null;
+          this.storedUser=null;}
       ).then(
         () => {
-          if (storedFactory == null) {
+          if (this.storedFactory == null) {
             this.isLoading = true;
             this.factoryProvider.factoriesObsv.subscribe(() => {
               this.factories = this.factoryProvider.factories;
@@ -57,20 +61,28 @@ export class LoginPage {
               () => this.isLoading = true;
             });
           } else {
-            // this.nativeStorage.setItem("factory", null).then(
-            //   ()=> console.log('Stored item!'),
-            // error => console.log(error));
-
-            this.dBoardProvider.getDashboardDataAndUsersForFactory(storedFactory);
+            this.dBoardProvider.getDashboardDataAndUsersForFactory(this.storedFactory);
             this.dBoardProvider.dashboardDataBS.subscribe(dData => {
               let userControl: boolean;
-              
-              this.dBoardProvider.personnel.forEach((per) => {
-                console.log("per:" + per.Kod)
-                if(per.Kod == storedUser){
-                  this.nav.push(TabsPage)
-              }
-              });
+              Promise.all([this.nativeStorage.getItem("factory"), this.nativeStorage.getItem("user")]).then(
+                values => {
+                  console.log("Values:" + values)
+                  this.storedFactory = values[0];
+                  this.storedUser = values[1];
+                  console.log("Stored Factory login:" + this.storedFactory)
+                  console.log("Stored User:" + this.storedUser)
+                },
+                error => {this.storedFactory = null;
+                  this.storedUser=null;}
+              ).then(() =>{
+                this.dBoardProvider.personnel.forEach((per) => {
+                  console.log("per:" + per.Kod + "- Stored User:" + this.storedUser)
+                  if(per.Kod === this.storedUser){
+                    this.nav.push(TabsPage)
+                }
+                });
+              })
+           
             });
           }
         }
@@ -79,6 +91,19 @@ export class LoginPage {
   }
   ionViewDidLoad() {
 
+  }
+  getStoredValues(){
+    Promise.all([this.nativeStorage.getItem("factory"), this.nativeStorage.getItem("user")]).then(
+      values => {
+        console.log("Values:" + values)
+        this.storedFactory = values[0];
+        this.storedUser = values[1];
+        console.log("Stored Factory login:" + this.storedFactory)
+        console.log("Stored User:" + this.storedUser)
+      },
+      error => {this.storedFactory = null;
+        this.storedUser=null;}
+    )
   }
   login() {
     if (this.password == this.selectedUser.Value) {
@@ -101,10 +126,12 @@ export class LoginPage {
     // this.dBoardProvider.getUsersDataForFactory(this.selectedFactory);
     this.factorySelected = true;
     this.users = this.dBoardProvider.personnel;
+    this.getStoredValues();
   }
 
   backClicked() {
     this.factorySelected = false;
+    this.selectedFactory="";
   }
   passwordClick() {
     this.error = ""
