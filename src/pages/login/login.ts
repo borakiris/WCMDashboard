@@ -61,10 +61,6 @@ this.storedFactory=null;
               () => this.isLoading = true;
             });
           } else {
-            // this.nativeStorage.setItem("factory", null).then(
-            //   ()=> console.log('Stored item!'),
-            // error => console.log(error));
-
             this.dBoardProvider.getDashboardDataAndUsersForFactory(this.storedFactory);
             this.dBoardProvider.dashboardDataBS.subscribe(dData => {
               let userControl: boolean;
