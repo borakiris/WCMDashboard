@@ -22,14 +22,10 @@ export class UserInfoPage {
   public storedFactory;
   public storedUser;
   ngOnInit() {
-   
-
        Promise.all([this.nativeStorage.getItem("factory"), this.nativeStorage.getItem("user")]).then(
         values => {
-          
           this.storedFactory = values[0];
           this.storedUser = values[1];
-          console.log("Stored Factory---:" + this.storedFactory)
         },
         error => this.storedFactory = null
       );
@@ -37,7 +33,6 @@ export class UserInfoPage {
   }
 
   logoff() {
-    console.log("Logoff clicked")
     Promise.all([this.nativeStorage.setItem("factory", null), this.nativeStorage.setItem("user", null)]).then(
       () => {//this.navCtrl.setRoot(LoginPage);
       // this.app.getRootNav().setRoot(LoginPage);

@@ -11,22 +11,24 @@ export class FactoriesDataProvider {
   factoriesObsv: Observable<any[]>;
 
 
-  public isFactoryLoading: boolean=true;
+  public isFactoryLoading: boolean = true;
   public dataMapObj: Map<string, number>;
   public dashboardDataBS: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(null);
 
   constructor(private af: AngularFireDatabase) {
     this.dataMapObj = new Map<string, number>();
-    this.getFactories();
+    //this.getFactories();
   }
 
   public getFactories() {
 
     this.factoriesObsv = this.af.list('Dashboard_Factories').valueChanges();
     this.factoriesObsv.subscribe(factData => {
-           this.factories = factData;
-           this.isFactoryLoading=false;
+      this.factories = factData;
+      this.isFactoryLoading = false;
     });
-     }
-
+  }
+  public getFactoriesObsv() {
+    return this.af.list('Dashboard_Factories').valueChanges();
+  }
 }
