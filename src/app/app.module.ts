@@ -18,6 +18,8 @@ import { OtherDataPage } from './../pages/other/other';
 import { LoginPage } from './../pages/login/login';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Platform } from 'ionic-angular'
+import { Push} from '@ionic-native/push';
+import { Firebase } from '@ionic-native/firebase';
 const firebaseConfig = {
   apiKey: 'AIzaSyA5W9Tjx0iBdM8vWal_BSCo-ep5T39Q2vA',
   authDomain: 'testdashboard-6c67a.firebaseapp.com',
@@ -58,7 +60,7 @@ const firebaseConfig = {
     StatusBar,NativeStorage,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    DashboardDataProvider,FactoriesDataProvider
+    DashboardDataProvider,FactoriesDataProvider,Push,Firebase
   ]
 })
 export class AppModule { }

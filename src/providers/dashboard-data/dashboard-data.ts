@@ -39,7 +39,8 @@ export class DashboardDataProvider {
           this.dashboard = dashData;
           dashData.forEach(element => {
             this.dataMapObj.set(element.Kod.replace('Baskı', 'Printer').replace('Kaplama', 'Laminator').replace('Kesme', 'Slitter')
-            .replace('Stampa', 'Printer').replace('Laminatore', 'Laminator').replace('Taglio', 'Slitter').replace('Coating', 'Laminator'), element.Value);
+            .replace('Stampa', 'Printer').replace('Laminatore', 'Laminator').replace('Taglio', 'Slitter').replace('Coating', 'Laminator')
+            .replace('Printing', 'Printer').replace('Slitting', 'Slitter'), element.Value);
           });
           let tarVal: number = this.dataMapObj.get("Date");
           this.tarihStr = moment.fromOADate(tarVal).format('Do MMMM YYYY')
