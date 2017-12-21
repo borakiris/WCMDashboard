@@ -1,18 +1,19 @@
-<ion-content class="login-background" padding *ngIf="isLoading==true">
+<ion-content class="login-background" padding >
   <button ion-button icon-only item-end clear *ngIf="factorySelected" color="danger" (click)="backClicked()">
     <ion-icon name="arrow-round-back"></ion-icon>
   </button>
-  <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off" style="margin-top: calc(100vh - 70vh);">
+  <form #loginForm="ngForm" *ngIf="loginShouldShow" (ngSubmit)="login()" autocomplete="off" style="margin-top: calc(100vh - 70vh);">
     <ion-list inset item-content>
-      <ion-item *ngIf="!factorySelected" id="rounded" [class.loading]="factoryProvider.isFactoryLoading">
+      <ion-item *ngIf="!factorySelected" id="rounded" [class.loading] = "(factories | async) ? false : true">
+  
         <ion-label>Factory</ion-label>
         <ion-select [(ngModel)]="selectedFactory" [ngModelOptions]="{standalone:true}" interface="popover" (ionChange)="onFactoryChange($event)">
-          <ion-option value={{fact.Value}} *ngFor="let fact of factories">{{fact.Value}}</ion-option>
+          <ion-option value={{fact.Value}} *ngFor="let fact of factories  | async">{{fact.Value}}</ion-option>
         </ion-select>
       </ion-item>
-      <ion-item *ngIf="factorySelected" id="rounded" class="wcm-ion-select" item-content >
+      <ion-item *ngIf="factorySelected" id="rounded" class="wcm-ion-select" [class.loading]="(users | async) ? false : true" item-content >
         <ion-select [(ngModel)]="selectedUser" style = "margin-left:-16px;" placeholder="Username" [ngModelOptions]="{standalone:true}" class="myCustomSelect" >
-          <ion-option [value]="per"  *ngFor="let per of dBoardProvider.personnel" >{{per.Kod}}</ion-option>
+          <ion-option [value]="per"  *ngFor="let per of users | async" >{{per?.Kod}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-item *ngIf="factorySelected" id="rounded"  item-content>

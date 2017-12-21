@@ -30,20 +30,7 @@ export class DashboardDataProvider {
     // this.getDashboardDataForFactory('Jeddah');
   }
 
-  public getDashboardDataAndUsersForFactory(factoryName: string) {
-
-    this.firebaseDBName = 'Users_' + factoryName;
-    this.personnel = [];
-    this.personnelObsv = this.af.list(this.firebaseDBName).valueChanges();
-    this.personnelObsv.subscribe(userData => {
-     
-      console.log("UserData:" + userData)
-      this.isUserLoading = false;
-      userData.forEach(element => {
-        this.personnel.push(Object.assign({}, element))
-      });
-
-      // this.personnel.splice(0,0,{Kod: "Admin", Value: "ltmiot2018"});
+  public getDashboardDataForFactory(factoryName: string) {
 
       this.firebaseDBName = 'Dashboard_' + factoryName;
       this.dashboardObsv = this.af.list(this.firebaseDBName).valueChanges();
@@ -52,7 +39,8 @@ export class DashboardDataProvider {
           this.dashboard = dashData;
           dashData.forEach(element => {
             this.dataMapObj.set(element.Kod.replace('Baskı', 'Printer').replace('Kaplama', 'Laminator').replace('Kesme', 'Slitter')
-            .replace('Stampa', 'Printer').replace('Laminatore', 'Laminator').replace('Taglio', 'Slitter'), element.Value);
+            .replace('Stampa', 'Printer').replace('Laminatore', 'Laminator').replace('Taglio', 'Slitter').replace('Coating', 'Laminator')
+            .replace('Printing', 'Printer').replace('Slitting', 'Slitter'), element.Value);
           });
           let tarVal: number = this.dataMapObj.get("Date");
           this.tarihStr = moment.fromOADate(tarVal).format('Do MMMM YYYY')
@@ -60,10 +48,12 @@ export class DashboardDataProvider {
           this.dashboardDataBS.next(false);
         });
     }
-    );
 
 
-  }
+  public getDashboardUsersForFactoryObsv(factoryName: string): Observable<IEmployee[]> {
+        this.firebaseDBName = 'Users_' + factoryName;
+        return this.af.list(this.firebaseDBName).valueChanges();
+      }
 
   public getUsersDataForFactory(factoryName: string) {
     this.firebaseDBName = 'Users_' + factoryName;
