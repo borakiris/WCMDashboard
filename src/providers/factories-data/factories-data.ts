@@ -3,7 +3,7 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
+import 'rxjs/add/operator/take'
 @Injectable()
 export class FactoriesDataProvider {
   factories: string[];
@@ -17,11 +17,11 @@ export class FactoriesDataProvider {
 
   constructor(private af: AngularFireDatabase) {
     this.dataMapObj = new Map<string, number>();
+
     //this.getFactories();
   }
 
   public getFactories() {
-
     this.factoriesObsv = this.af.list('Dashboard_Factories').valueChanges();
     this.factoriesObsv.subscribe(factData => {
       this.factories = factData;
