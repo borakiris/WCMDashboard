@@ -5,7 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Nav } from 'ionic-angular/components/nav/nav';
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
+//import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { Firebase } from '@ionic-native/firebase';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { FactoriesDataProvider } from './../providers/factories-data/factories-data';
@@ -24,8 +24,7 @@ export class MyApp {
     rootPage: any = LoginPage;
     factory: string;
     factories: Observable<any[]>;
-    constructor(private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public push: Push
-        , private nativeStorage: NativeStorage, public alertCtrl: AlertController,
+    constructor(private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private nativeStorage: NativeStorage, public alertCtrl: AlertController,
         private firebase: Firebase, private factoryProvider: FactoriesDataProvider, private badge: Badge) {
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
@@ -86,27 +85,62 @@ export class MyApp {
 
     private initializeFireBaseIos(): Promise<any> {
         return this.firebase.grantPermission()
+        
             .catch(error => console.error('Error getting permission', error))
             .then(() => {
                 this.firebase.getToken()
                     .catch(error => console.error('Error getting token', error))
                     .then(token => {
-
                         console.log(`The token is ${token}`);
+                        //this.fcm.subscribeToTopic('all');
 
                         Promise.all([
                             this.firebase.subscribe('firebase-app'),
                             this.firebase.subscribe(this.factory),
                         ]).then((result) => {
-
                             if (result[0]) console.log(`Subscribed to FirebaseDemo`);
                             if (result[1]) console.log(`Subscribed to iOS`);
 
                             this.subscribeToPushNotificationEvents();
                         });
                     });
-            })
+                })
+    }
 
+    private initializeFireBaseIos2(): Promise<any> {
+        return this.firebase.grantPermission()
+            .catch((e) => {
+                alert(e);
+            })
+            .then(() => {
+                this.firebase.getToken()
+                    .catch((e) => {
+                        alert(e);
+                    })
+                    .then(token => {
+                        alert(`This iOS device's token is ${token}`);
+                    });
+    
+                this.firebase.onTokenRefresh().subscribe((token: string) => {
+                        // save device token
+                        this.subscribeToPushNotifications();
+                    }, e => {
+                        alert(e);
+                    });
+            });
+    }
+
+    private subscribeToPushNotifications() {
+        // handle incoming push notifications
+        this.firebase.onNotificationOpen().subscribe((pushNotification: Notification) => {
+            // if (pushNotification.tap) {
+            //     // background received
+            // } else {
+            //     // foreground received
+            // }
+        }, e => {
+            console.error(e);
+        });
     }
 
     private saveToken(token: any): Promise<any> {

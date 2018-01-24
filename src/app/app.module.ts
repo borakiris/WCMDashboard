@@ -18,7 +18,7 @@ import { OtherDataPage } from './../pages/other/other';
 import { LoginPage } from './../pages/login/login';
 import { NativeStorage } from '@ionic-native/native-storage';
 import { Platform } from 'ionic-angular'
-import { Push} from '@ionic-native/push';
+//import { Push} from '@ionic-native/push';
 import { Firebase } from '@ionic-native/firebase';
 import { Badge } from '@ionic-native/badge';
 const firebaseConfig = {
@@ -61,7 +61,7 @@ const firebaseConfig = {
     StatusBar,NativeStorage,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    DashboardDataProvider,FactoriesDataProvider,Push,Firebase,Badge
+    DashboardDataProvider,FactoriesDataProvider,Firebase,Badge
   ]
 })
 export class AppModule { }
