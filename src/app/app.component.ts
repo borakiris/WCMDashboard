@@ -107,7 +107,7 @@ export class MyApp {
                 })
     }
 
-    private initializeFireBaseIos2(): Promise<any> {
+/*     private initializeFireBaseIos2(): Promise<any> {
         return this.firebase.grantPermission()
             .catch((e) => {
                 alert(e);
@@ -128,9 +128,9 @@ export class MyApp {
                         alert(e);
                     });
             });
-    }
+    } */
 
-    private subscribeToPushNotifications() {
+/*     private subscribeToPushNotifications() {
         // handle incoming push notifications
         this.firebase.onNotificationOpen().subscribe((pushNotification: Notification) => {
             // if (pushNotification.tap) {
@@ -141,7 +141,7 @@ export class MyApp {
         }, e => {
             console.error(e);
         });
-    }
+    } */
 
     private saveToken(token: any): Promise<any> {
         // Send the token to the server
@@ -164,17 +164,17 @@ export class MyApp {
         // Handle incoming notifications
         this.firebase.onNotificationOpen().subscribe(
             (notification: NotificationModel) => {
-                this.badge.increase(1);
+                // this.badge.increase(1);
                 !notification.tap
                     ? console.log('The user was using the app when the notification arrived...')
                     : console.log('The app was closed when the notification arrived...');
 
-                let notificationAlert = this.alertCtrl.create({
-                    title: notification.title,
-                    message: notification.body,
-                    buttons: ['Ok']
-                });
-                notificationAlert.present();
+                // let notificationAlert = this.alertCtrl.create({
+                //     title: notification.title,
+                //     message: notification.body,
+                //     buttons: ['Ok']
+                // });
+                // notificationAlert.present();
             },
             error => {
                 console.error('Error getting the notification', error);
