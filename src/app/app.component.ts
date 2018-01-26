@@ -107,41 +107,6 @@ export class MyApp {
                 })
     }
 
-/*     private initializeFireBaseIos2(): Promise<any> {
-        return this.firebase.grantPermission()
-            .catch((e) => {
-                alert(e);
-            })
-            .then(() => {
-                this.firebase.getToken()
-                    .catch((e) => {
-                        alert(e);
-                    })
-                    .then(token => {
-                        alert(`This iOS device's token is ${token}`);
-                    });
-    
-                this.firebase.onTokenRefresh().subscribe((token: string) => {
-                        // save device token
-                        this.subscribeToPushNotifications();
-                    }, e => {
-                        alert(e);
-                    });
-            });
-    } */
-
-/*     private subscribeToPushNotifications() {
-        // handle incoming push notifications
-        this.firebase.onNotificationOpen().subscribe((pushNotification: Notification) => {
-            // if (pushNotification.tap) {
-            //     // background received
-            // } else {
-            //     // foreground received
-            // }
-        }, e => {
-            console.error(e);
-        });
-    } */
 
     private saveToken(token: any): Promise<any> {
         // Send the token to the server
