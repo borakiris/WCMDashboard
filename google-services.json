@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:426198085892:android:764d2cb7da3280eb",
+        "mobilesdk_app_id": "1:426198085892:android:f38b3f5c0d665e6b",
         "android_client_info": {
-          "package_name": "io.ionic.starter"
+          "package_name": "com.litum.tp.dashboard"
         }
       },
       "oauth_client": [
