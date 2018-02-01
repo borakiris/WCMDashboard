@@ -1,11 +1,11 @@
 page-login {
   .login-background {
-    background: url('../assets/imgs/background.jpg') no-repeat center fixed;
-    background-size: 100%;
-    background-position: bottom;
-    background-color: white;
-    background-origin: padding-box;
-    margin: auto;
+    background: url('../assets/imgs/background.jpg') no-repeat;
+    background-size: auto 85%;
+    background-position: center;
+    background-color: #0079c7;
+    //background-origin: padding-box;
+    //margin: auto;
   }
   .center {
     text-align: center;
@@ -40,3 +40,21 @@ page-login {
 }
 
 }
+/* @media screen and (min-width: 480px) {
+    .login-background {
+      background: url('../assets/imgs/background.jpg') no-repeat;
+      background-size: auto 100%;
+      background-position: center;
+      background-color: #0079c7;
+      //background-origin: padding-box;
+      //margin: auto;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    background: url('../assets/imgs/background.jpg') no-repeat;
+} */

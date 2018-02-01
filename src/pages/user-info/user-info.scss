@@ -1,11 +1,11 @@
 page-user-info {
     .user-background {
-        background: url('../assets/imgs/background_user.jpg') no-repeat center fixed;
-        background-size: 100%;
-        background-position: bottom;
-        background-color: white;
-        background-origin: padding-box;
-        margin: auto;      
+        background: url('../assets/imgs/background_user.jpg') no-repeat;
+        background-size: auto 100%;
+        background-position: center;
+        background-color: #0079c7;
+        //background-origin: padding-box;
+        //margin: auto;      
       }
       #rounded {
         width: 100%;
