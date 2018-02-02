@@ -23,11 +23,11 @@
 
       <pie-chart [pieChartObj]="priYesterdayEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
-        Produced Meters: {{getValue("Printing (Yesterday's Produced Meters)")| number:'.0'}}
+        Produced Meters: {{getValue("Printer (Yesterday's Produced Meters)")| number:'.0'}}
       </ion-item>
       <pie-chart [pieChartObj]="priMTDEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
-        Produced Meters: {{getValue("Printing (MTD Produced Meters)")| number:'.0'}}
+        Produced Meters: {{getValue("Printer (MTD Produced Meters)")| number:'.0'}}
       </ion-item>
       <sub ion-text color="target">Target : %{{getValue("Printer(Target EE)")}}</sub>
     </ion-slide>
@@ -42,11 +42,11 @@
       </ion-header>
       <pie-chart [pieChartObj]="lamYesterdayEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
-        Produced Meters: {{getValue("Coating (Yesterday's Produced Meters)")| number:'.0'}}
+        Produced Meters: {{getValue("Laminator (Yesterday's Produced Meters)")| number:'.0'}}
       </ion-item>
       <pie-chart [pieChartObj]="lamMTDEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
-        Produced Meters: {{getValue("Coating (MTD Produced Meters)")| number:'.0'}}
+        Produced Meters: {{getValue("Laminator (MTD Produced Meters)")| number:'.0'}}
       </ion-item>
       <sub ion-text color="target">Target : %{{getValue("Laminator(Target EE)")}}</sub>
     </ion-slide>
@@ -61,11 +61,11 @@
       </ion-header>
       <pie-chart [pieChartObj]="sliYesterdayEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
-        Produced Meters: {{getValue("Slitting (Yesterday's Produced Meters)")| number:'.0'}}
+        Produced Meters: {{getValue("Slitter (Yesterday's Produced Meters)")| number:'.0'}}
       </ion-item>
       <pie-chart [pieChartObj]="sliMTDEE"></pie-chart>
       <ion-item class="alignme" text-wrap>
-        Produced Meters: {{getValue("Slitting (MTD Produced Meters)")| number:'.0'}}
+        Produced Meters: {{getValue("Slitter (MTD Produced Meters)")| number:'.0'}}
       </ion-item>
       <sub ion-text color="target">Target : %{{getValue("Slitter(Target EE)")}}</sub>
     </ion-slide>
