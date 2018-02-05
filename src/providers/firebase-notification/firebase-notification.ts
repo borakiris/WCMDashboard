@@ -45,7 +45,7 @@ export class FirebaseNotificationProvider {
                 
             ]).then((result) => {
                 if (result[0]) console.log(`Subscribed to FirebaseDemo`);
-                if (result[1]) alert(`Subscribed to ` + factory);
+                if (result[1]) console.log(`Subscribed to ` + factory);
                 this.subscribeToPushNotificationEvents();
             });
         });
