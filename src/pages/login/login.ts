@@ -1,3 +1,4 @@
+import { FirebaseNotificationProvider } from './../../providers/firebase-notification/firebase-notification';
 import { IEmployee } from './../../classes/IEmployee';
 import { FactoriesDataProvider } from './../../providers/factories-data/factories-data';
 import { TabsPage } from './../tabs/tabs';
@@ -35,7 +36,8 @@ export class LoginPage {
   loginShouldShow: boolean;
   data: Observable<{}[]>;
   constructor(private nav: NavController, public navParams: NavParams, private factoryProvider: FactoriesDataProvider,
-    private dBoardProvider: DashboardDataProvider, private nativeStorage: NativeStorage, private platform: Platform, public app: App) {
+    private dBoardProvider: DashboardDataProvider, private nativeStorage: NativeStorage, private platform: Platform, public app: App,
+  public notificationProvider:FirebaseNotificationProvider) {
     this.factories = this.factoryProvider.getFactoriesObsv();
     this.loginShouldShow=false;
   }
@@ -134,6 +136,7 @@ export class LoginPage {
       this.nativeStorage.setItem("user", this.selectedUser.Kod).then(
         () => console.log('Stored User item!'),
         error => console.log(error));
+      this.notificationProvider.subscribeToNotification(this.selectedFactory);
       this.nav.push(TabsPage);
     } else {
       this.error = "Wrong Password";

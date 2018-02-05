@@ -21,6 +21,7 @@ import { Platform } from 'ionic-angular'
 //import { Push} from '@ionic-native/push';
 import { Firebase } from '@ionic-native/firebase';
 import { Badge } from '@ionic-native/badge';
+import { FirebaseNotificationProvider } from '../providers/firebase-notification/firebase-notification';
 const firebaseConfig = {
   apiKey: 'AIzaSyA5W9Tjx0iBdM8vWal_BSCo-ep5T39Q2vA',
   authDomain: 'testdashboard-6c67a.firebaseapp.com',
@@ -61,7 +62,8 @@ const firebaseConfig = {
     StatusBar,NativeStorage,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    DashboardDataProvider,FactoriesDataProvider,Firebase,Badge
+    DashboardDataProvider,FactoriesDataProvider,Firebase,Badge,
+    FirebaseNotificationProvider
   ]
 })
 export class AppModule { }
