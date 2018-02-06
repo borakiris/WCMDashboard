@@ -27,16 +27,19 @@ export class MyApp {
     factories: Observable<any[]>;
     constructor(private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private nativeStorage: NativeStorage, public alertCtrl: AlertController,
         private firebase: Firebase, private factoryProvider: FactoriesDataProvider, private badge: Badge,public notificationProvider:FirebaseNotificationProvider) {
+         
         platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             platform.registerBackButtonAction(() => this.myHandlerFunction());
             statusBar.styleDefault();
             this.badge.clear();
+
             this.nativeStorage.getItem("factory").then(ret => this.factory = ret)
-            if (this.platform.is('cordova')) {
+             if (platform.is('cordova')) {
                 // Initialize push notification feature
                 this.notificationProvider.subscribeToNotification(this.factory);
+             
             } else {
                 console.log('Push notifications are not enabled since this is not a real device');
             }
